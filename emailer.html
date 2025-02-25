@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Emailer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            max-width: 700px;
+            margin: 30px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .header {
+            background: #002b5e;
+            color: white;
+            padding: 20px;
+            font-size: 30px;
+            font-weight: bold;
+            border-radius: 10px 10px 0 0;
+            text-transform: uppercase;
+        }
+        .content {
+            padding: 25px;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #444;
+        }
+        .news-image {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .footer {
+            margin-top: 20px;
+            padding: 15px;
+            font-size: 14px;
+            background: #002b5e;
+            color: white;
+            border-radius: 0 0 10px 10px;
+            text-align: center;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+            margin-top: 15px;
+            background: #ff4500;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        .button:hover {
+            background: #cc3700;
+        }
+        .green-button {
+            display: inline-block;
+            padding: 12px 25px;
+            margin-top: 20px;
+            background: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+        .green-button:hover {
+            background: #218838;
+        }
+        .extra-content {
+            display: none;
+            padding-top: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: left;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+    <script>
+        function toggleContent() {
+            var content = document.getElementById("extraContent");
+            var button = document.getElementById("toggleButton");
+            var buttonContainer = document.getElementById("buttonContainer");
+            
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block";
+                button.innerText = "Read Less";
+                buttonContainer.appendChild(button);
+            } else {
+                content.style.display = "none";
+                button.innerText = "Read More";
+                document.querySelector(".content").appendChild(button);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">Latest News Update</div>
+        <div class="content">
+            <img src="news.jpg" alt="Breaking News" class="news-image">
+            <h2>Breaking News: Major Event Unfolds</h2>
+            <p>Stay ahead with the latest breaking news and in-depth analysis on major events shaping the world. Our team is committed to delivering accurate and timely news to keep you informed.</p>
+            <div id="extraContent" class="extra-content">
+                <p>Our expert journalists bring you real-time updates and exclusive insights from around the globe. We ensure our readers receive accurate, unbiased, and impactful news that matters most.</p>
+                <p>Follow us for continuous coverage, deep analysis, and expert opinions. Stay informed and make sense of the world with our trusted reporting.</p>
+            </div>
+            <div id="buttonContainer" class="button-container">
+                <button id="toggleButton" class="button" onclick="toggleContent()">Read More</button>
+            </div>
+        </div>
+        <div class="footer">
+            <p>&copy; 2025 News Company. All rights reserved. | <a href="#" style="color: #ffcc00; text-decoration: none;">Unsubscribe</a></p>
+            <a href="https://www.aajtak.in/" class="green-button">Visit Our Website</a>
+        </div>
+    </div>
+</body>
+</html>
