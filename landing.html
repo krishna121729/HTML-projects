@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Today</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Multicolor Gradient Background */
+        body {
+            background: linear-gradient(135deg, #ff69b4, #6495ed, #ff4500, #800080, #8a2be2, #ffcc00);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+            color: white;
+            text-align: center;
+        }
+
+        @keyframes gradientAnimation {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .navbar .menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar .menu a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .navbar .menu a:hover {
+            color: #FFD700;
+        }
+
+        /* Breaking News */
+        .breaking-news {
+            background: red;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        .breaking-news marquee {
+            font-size: 16px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        /* Subscription Box */
+        .email-form {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .email-container {
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 30px;
+            padding: 5px;
+            width: 350px;
+        }
+
+        .email-input {
+            flex: 1;
+            padding: 15px;
+            font-size: 16px;
+            border: none;
+            outline: none;
+            border-radius: 30px;
+        }
+
+        .email-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 22px;
+            color: gray;
+            transition: color 0.3s;
+        }
+
+        .email-button:hover {
+            color: #FFD700;
+        }
+
+        /* Live Updates */
+        .live-updates {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        .live-updates h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .update {
+            padding: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .update:last-child {
+            border-bottom: none;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            font-size: 14px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">📢 News Today</div>
+        <div class="menu">
+            <a href="#">Home</a>
+            <a href="#">World</a>
+            <a href="#">Business</a>
+            <a href="#">Technology</a>
+            <a href="#">Sports</a>
+        </div>
+    </div>
+
+    <!-- Breaking News -->
+    <div class="breaking-news">
+        <marquee>🔥 Breaking News: New AI Model Disrupts Tech Industry | 🚀 SpaceX Launches New Mission | 💰 Stock Market Hits All-Time High</marquee>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Stay Updated with the Latest News!</h1>
+        <p>Subscribe to our newsletter for real-time updates and exclusive insights.</p>
+        <form class="email-form">
+            <div class="email-container">
+                <input type="email" class="email-input" placeholder="Enter your email" required>
+                <button class="email-button">➡</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Live Updates -->
+    <div class="live-updates">
+        <h2>📢 Live Updates</h2>
+        <div class="update">⚡ AI surpasses human capabilities in complex problem-solving.</div>
+        <div class="update">🚀 SpaceX successfully lands its rocket on an ocean platform.</div>
+        <div class="update">📈 Global markets rise as investors gain confidence in new policies.</div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        &copy; 2025 News Today | Privacy Policy | Terms of Service
+    </div>
+</body>
+</html>
