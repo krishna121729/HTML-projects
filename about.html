@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Krishna Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1e1e2f, #3a3a5a, #2c2c44);
+      background-size: 600% 600%;
+      animation: gradientBG 20s ease infinite;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    #circles-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .circle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(2px);
+      animation: float 20s infinite ease-in-out;
+    }
+
+    .side-circle {
+      position: fixed;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      filter: blur(30px);
+      z-index: 0;
+    }
+
+    .left-circle {
+      top: 30%;
+      left: -150px;
+    }
+
+    .right-circle {
+      top: 30%;
+      right: -150px;
+    }
+
+    .image-circle {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 4px solid white;
+      box-shadow: 0 0 20px 6px rgba(255, 255, 255, 0.5);
+      overflow: hidden;
+      background-color: rgba(255, 255, 255, 0.1);
+      z-index: 1;
+      transition: box-shadow 0.3s ease;
+      opacity: 0;
+    }
+
+    .image-circle:hover {
+      box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.8);
+    }
+
+    .image-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .frame-label {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.1);
+      padding: 12px 18px;
+      width: 140px;
+      height: 70px;
+      border-radius: 100px 100px 0 0;
+      backdrop-filter: blur(8px);
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #fff;
+      white-space: nowrap;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .left-img1 { top: 15%; left: 120px; }
+    .left-img2 { top: 55%; left: 120px; }
+    .right-img1 { top: 20%; right: 120px; }
+    .right-img2 { top: 60%; right: 180px; }
+
+    .frame-animation {
+      animation: slideUp 1s ease forwards;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-20px) translateX(10px); }
+      100% { transform: translateY(0) translateX(0); }
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      25% { background-position: 50% 0%; }
+      50% { background-position: 100% 50%; }
+      75% { background-position: 50% 100%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+      background: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      animation: slideDown 1s ease forwards;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .logo {
+      color: white;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .logo span.krishna {
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 16px;
+    }
+
+    .nav-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: transform 0.3s ease, background 0.3s ease;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: scale(1.15);
+    }
+
+    .nav-btn-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px 0;
+      background: rgba(0, 0, 0, 0.15);
+      font-size: 0.7rem;
+      color: #e0e0e0;
+      box-shadow: 0 -1px 5px rgba(0,0,0,0.2);
+      z-index: 1;
+      margin-top: auto;
+    }
+
+    .rect-glass {
+      position: absolute;
+      width: 220px;
+      height: 130px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.2), 0 0 60px rgba(255, 255, 255, 0.05);
+      z-index: 1;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .rect-glass:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.4), 0 0 80px rgba(255, 255, 255, 0.1);
+    }
+    .rect-glass {
+  position: absolute;
+  width: 280px;
+  height: 160px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.2), 0 0 60px rgba(255, 255, 255, 0.05);
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  opacity: 0;
+  animation: slideUpRect 1s ease forwards;
+}
+.rect-glass:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.4), 0 0 80px rgba(255, 255, 255, 0.1);
+}
+.rect-glass {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+    .rect-left1 { top: 15%; left: 350px; }
+    .rect-left2 { top: 55%; left: 350px; }
+    .rect-right1 { top: 15%; right: 350px; }
+    .rect-right2 { top: 60%; right: 410px; }
+    @keyframes slideUpRect {
+      from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      }
+}
+
+.rect-glass {
+  /* Existing styles... */
+  opacity: 0;
+  animation: slideUpRect 1s ease forwards;
+}
+
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo"><span class="krishna">Programmer • Creative • Dreamer</span></div>
+    <div class="nav-buttons">
+      <a class="nav-btn nav-btn-link" href="index.html">HOME</a>
+      <a class="nav-btn nav-btn-link" href="social.html">SOCIALS</a>
+      <a class="nav-btn nav-btn-link" href="about.html">ABOUT</a>
+    </div>
+  </nav>
+
+  <div id="circles-container"></div>
+  <div class="side-circle left-circle"></div>
+  <div class="side-circle right-circle"></div>
+
+  <div class="image-circle left-img1 frame-animation">
+    <img src="goals.png">
+    <div class="frame-label">Personality</div>
+  </div>
+
+  <div class="image-circle left-img2 frame-animation">
+    <img src="perso.jpg">
+    <div class="frame-label">Goals</div>
+  </div>
+
+  <div class="image-circle right-img1 frame-animation">
+    <img src="football.jpg">
+    <div class="frame-label">Hobby</div>
+  </div>
+
+  <div class="image-circle right-img2 frame-animation">
+    <img src="gaming.png">
+    <div class="frame-label">Digital</div>
+  </div>
+  <div class="rect-glass rect-left1">
+    <div>"Creative, curious, driven, thoughtful, calm under pressure, tech-savvy, optimistic, loyal, and always eager to grow."</div>
+  </div>
+  
+  <div class="rect-glass rect-left2">
+    <div>"I aim to become the best coder and programmer through relentless learning, innovation, and consistent practice."</div>
+  </div>
+  
+  <div class="rect-glass rect-right1">
+    <div>"I enjoy football, coding, gaming, and travelling because they inspire creativity, challenge me, and spark joy."
+
+    </div>
+  </div>
+  
+  <div class="rect-glass rect-right2">
+    <div>"Online knows as 'Pimon' and i love immersive games, creative challenges, and thrives in a digital world full of possibilities."</div>
+  </div>
+  
+  <footer>
+    *© 2025 Pimon. All rights reserved, Designed & Developed by Krishna* <br>
+    Contact: krishna121729@gmail.com <br>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const container = document.getElementById("circles-container");
+      for (let i = 0; i < 60; i++) {
+        const circle = document.createElement('div');
+        circle.classList.add('circle');
+        const size = 40 + Math.random() * 60;
+        circle.style.width = circle.style.height = `${size}px`;
+        circle.style.top = `${Math.random() * 100}%`;
+        circle.style.left = `${Math.random() * 100}%`;
+        circle.style.opacity = 0.6;
+        circle.style.animationDuration = `${10 + Math.random() * 20}s`;
+        circle.style.animationDelay = `${Math.random() * 10}s`;
+        container.appendChild(circle);
+      }
+      const rectangles = document.querySelectorAll('.rect-glass');
+      rectangles.forEach((rect, index) => {
+      rect.style.animationDelay = `${index * 0.3 + 0.2}s`; // Slight delay after circles
+      });
+
+      const frames = document.querySelectorAll('.frame-animation');
+      frames.forEach((frame, index) => {
+        frame.style.animationDelay = `${index * 0.3}s`;
+      });
+    });
+  </script>
+</body>
+</html>
